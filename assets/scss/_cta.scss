@@ -1,0 +1,133 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Content Layout */
+.content-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Image Section (Left) */
+.image-container {
+    width: 50%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+    border-radius: 10px 0px 0px 10px;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+/* Text Section (Right) */
+.text-content {
+    width: 50%;
+    padding: 40px;
+    text-align: left;
+    animation: slideInRight 1s ease-in-out;
+}
+
+/* Heading Styles */
+h5.style1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-transform: uppercase;
+}
+
+h5.style2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00ccff;
+    font-style: italic;
+}
+
+h5.style3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff3366;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Paragraph Styles */
+p.para-style1 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.5;
+}
+
+p.para-style2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #555;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+p.para-style3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffcc99;
+    text-decoration: underline;
+}
+
+/* Slide-in Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+    .text-content,
+    .image-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .text-content {
+        padding: 20px;
+    }
+
+    .image-container img {
+        border-radius: 0;
+    }
+}
