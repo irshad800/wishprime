@@ -1465,13 +1465,13 @@
     </div>
 <!-- WhatsApp Chat Button -->
 <a href="https://wa.me/971563020773" class="chat-button whatsapp-chat show" target="_blank">
-    <img src="assets\img\menu\image.png" alt="WhatsApp">
+    <img src="assets/img/menu/image.png" alt="WhatsApp">
     <span class="chat-text">WhatsApp</span>
 </a>
 
 <!-- Facebook Messenger Chat Button -->
-<a href="https://m.me/Prime Wish AE" class="chat-button facebook-chat show" target="_blank">
-    <img src="assets\img\menu\messenger.jpg" alt="Messenger">
+<a href="https://m.me/PrimeWishAE" class="chat-button facebook-chat show" target="_blank">
+    <img src="assets/img/menu/messenger.jpg" alt="Messenger">
     <span class="chat-text">Messenger</span>
 </a>
 
@@ -1493,11 +1493,12 @@
         border-radius: 25px 0 0 25px; /* Rounded left side */
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.5s ease-in-out;
+        background-color: transparent; /* No background initially */
     }
 
     /* WhatsApp Chat Button */
     .whatsapp-chat {
-        bottom: 100px; /* Positioned slightly higher */
+        bottom: 100px;
         background-color: #25D366;
     }
 
@@ -1508,7 +1509,7 @@
 
     /* Facebook Messenger Chat Button */
     .facebook-chat {
-        bottom: 160px; /* Positioned slightly higher */
+        bottom: 160px;
         background-color: #0078FF;
     }
 
@@ -1531,6 +1532,37 @@
     .chat-button.hidden {
         right: -200px; /* Moves off-screen */
     }
+
+    /* Mobile view: Only show image, remove text & background */
+    @media screen and (max-width: 768px) {
+        .chat-button {
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            justify-content: center;
+            border-radius: 50%; /* Circular icon */
+            background-color: transparent !important; /* No background */
+            right: 10px;
+        }
+
+        .chat-button img {
+            width: 40px;
+            height: 40px;
+            margin: 0;
+        }
+
+        .chat-text {
+            display: none; /* Hide text on mobile */
+        }
+
+        .whatsapp-chat {
+            bottom: 80px;
+        }
+
+        .facebook-chat {
+            bottom: 140px;
+        }
+    }
 </style>
 
 <script>
@@ -1552,7 +1584,6 @@
         }, 500); // Delay before reappearing (500ms)
     });
 </script>
-
 
     <!-- Footer Section    S T A R T -->
     <footer class="footer-section bg-title fix">
