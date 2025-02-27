@@ -575,6 +575,22 @@
                   <div class="col-12 text-center">
                     <div id="google-login-btn"></div>
                   </div>
+                  <!-- Google Sign-In Button -->
+                  <div id="g_id_onload"
+                  data-client_id="734550685702-9r7gjq629te577pie8bef77id27upcct.apps.googleusercontent.com"
+                  data-callback="handleGoogleSignIn"
+                  data-auto_prompt="false">
+             </div>
+             
+             <!-- Google Sign-In Button -->
+             <div class="g_id_signin"
+                  data-type="standard"
+                  data-size="large"
+                  data-theme="outline"
+                  data-text="continue_with"
+                  data-shape="rectangular">
+             </div>
+             
                   <h6>Don’t have an account? <a href="#" id="switch-to-signup" class="text-theme-color">Sign Up</a></h6>
                 </form>
 
@@ -912,8 +928,38 @@
       </div>
     </div>
   </div>
-
-  <!-- JavaScript to freeze page during API calls -->
+  <script>
+    function handleGoogleSignIn(response) {
+        console.log("Google Sign-In Response:", response);
+  
+        if (!response.credential) {
+            alert("Google sign-in failed. Please try again.");
+            return;
+        }
+  
+        // Send token to backend for verification
+        fetch("https://primewish-ae.onrender.com/api/auth/google-login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: response.credential })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("Backend Response:", data);
+            if (data.Success) {
+                localStorage.setItem("authToken", data.token);
+                alert("Login successful! Redirecting...");
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Google sign-in failed: " + data.Message);
+            }
+        })
+        .catch(error => {
+            console.error("Google Sign-In Error:", error);
+            alert("An error occurred. Please try again.");
+        });
+    }
+  </script>
   <script>
 document.addEventListener("DOMContentLoaded", function () {
     const API_URL = "https://primewish-ae.onrender.com/api/auth";
@@ -1007,7 +1053,44 @@ document.addEventListener("DOMContentLoaded", function () {
             hint.style.color = "#dc3545";
         }
     }
+    function handleGoogleSignIn(response) {
+    console.log("Google Sign-In Response:", response);
+    
+    if (!response.credential) {
+        alert("Google sign-in failed. Please try again.");
+        return;
+    }
 
+    // Show Loader
+    document.getElementById("loadingOverlay").style.display = "block";
+
+    // Send token to backend for verification
+    fetch("https://primewish-ae.onrender.com/api/auth/google-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: response.credential })
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("Backend Response:", data);
+
+        if (data.Success) {
+            localStorage.setItem("authToken", data.token);
+            alert("Login successful! Redirecting...");
+            window.location.href = "dashboard.html"; // Redirect to dashboard
+        } else {
+            alert("Google sign-in failed: " + data.Message);
+        }
+    })
+    .catch(error => {
+        console.error("Google Sign-In Error:", error);
+        alert("An error occurred. Please try again.");
+    })
+    .finally(() => {
+        // Hide Loader
+        document.getElementById("loadingOverlay").style.display = "none";
+    });
+}                                                                                                                                               
     // **Live Password Validation**
     document.getElementById("signup-password").addEventListener("keyup", validateSignupPassword);
     document.getElementById("confirm-password").addEventListener("keyup", matchPasswords);
