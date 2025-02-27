@@ -1262,65 +1262,127 @@
 
     <!-- Testimonial Section    S T A R T -->
     <section class="testimonial-section fix bg-color3">
-        <div class="testimonial-wrapper style1 section-padding ">
+        <div class="testimonial-wrapper style1 section-padding">
             <div class="shape"><img src="assets/img/shape/cooking.png" alt="thumb"></div>
             <div class="shape2"><img src="assets/img/shape/testimonialShape1_1.png" alt="shape"></div>
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-xl-5 d-flex align-items-center justify-content-center">
-                        <div class="video-wrap cir36 ">
-                            <a href="https://www.youtube.com/watch?v=f2Gzr8sAGB8" class="play-btn popup-video"><img
-                                    src="assets/img/shape/player.svg" alt="icon"></a>
+                        <div class="video-wrap cir36">
+                            <a href="https://www.youtube.com/watch?v=f2Gzr8sAGB8" class="play-btn popup-video">
+                                <img src="assets/img/shape/player.svg" alt="icon">
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-7">
                         <div class="title-area">
                             <div class="sub-title text-center wow fadeInUp" data-wow-delay="0.5s">
-                                <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon">Testimonials<img
-                                    class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
+                                <img class="me-1" src="assets/img/icon/titleIcon.svg" alt="icon">Testimonials
+                                <img class="ms-1" src="assets/img/icon/titleIcon.svg" alt="icon">
                             </div>
                             <h2 class="title text-white wow fadeInUp" data-wow-delay="0.7s">
-                                What our Clients Say
+                                What Our Clients Say
                             </h2>
                         </div>
+    
+                        <!-- Testimonials Container -->
                         <div class="slider-area">
                             <div class="swiper testmonialSliderOne">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="testimonial-card style1">
-                                            <div class="testimonial-header">
-                                                <div class="fancy-box">
-                                                    <div class="item1"><img
-                                                            src="assets/img/testimonial/testimonialProfile1_1.png"
-                                                            alt="thumb"></div>
-                                                    <div class="item2">
-                                                        <h6>Albert Flores</h6>
-                                                        <p>Web Designer</p>
-                                                        <div class="icon"><img src="assets/img/icon/star.svg"
-                                                                alt="icon"></div>
-                                                    </div>
-                                                    <div class="quote"><img src="assets/img/icon/quote.svg" alt="icon">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <p>Penatibus magnis dis point parturient montes nascetur ridiculus mus Ut id
-                                                lorem ac enim the vestibulum blandit nec sit amet felis. Fusce quis diam
-                                                odio Cras mattis mi quis tincidunt</p>
-                                        </div>
-                                    </div>
+                                <div class="swiper-wrapper" id="review-container">
+                                    <!-- Reviews will be inserted here dynamically -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+    
             <div class="btn-wrap">
                 <div class="arrow-prev"><i class="fa-regular fa-arrow-left"></i></div>
                 <div class="arrow-next"><i class="fa-regular fa-arrow-right"></i></div>
             </div>
         </div>
     </section>
+    
+    <style>
+        /* Styling for consistency */
+        .testimonial-section {
+            padding: 60px 0;
+        }
+    </style>
+    
+    <script>
+        const API_BASE_URL = "https://primewish-ae.onrender.com/api/review"; // Replace with actual backend URL
+    
+        // Fetch and Display Reviews
+        async function fetchReviews() {
+            try {
+                const response = await fetch(API_BASE_URL + "/all");
+                const data = await response.json();
+                const reviewContainer = document.getElementById("review-container");
+    
+                reviewContainer.innerHTML = ""; // Clear previous reviews
+    
+                if (data.Success && data.Reviews.length > 0) {
+                    data.Reviews.forEach(review => {
+                        reviewContainer.innerHTML += `
+                            <div class="swiper-slide">
+                                <div class="testimonial-card style1">
+                                    <div class="testimonial-header">
+                                        <div class="fancy-box">
+                                            <div class="item1"><img src="assets/img/testimonial/default-user.png" alt="thumb"></div>
+                                            <div class="item2">
+                                                <h6>${review.name}</h6>
+                                                <p>${"⭐".repeat(review.rating)}</p>
+                                            </div>
+                                            <div class="quote"><img src="assets/img/icon/quote.svg" alt="icon"></div>
+                                        </div>
+                                    </div>
+                                    <p>${review.message}</p>
+                                </div>
+                            </div>`;
+                    });
+                } else {
+                    reviewContainer.innerHTML = `<p class="text-white text-center">No reviews yet.</p>`;
+                }
+            } catch (error) {
+                console.error("Error fetching reviews:", error);
+            }
+        }
+    
+        // Load reviews on page load
+        fetchReviews();
+    </script>
+    
+    <style>
+        /* Styling for text-only testimonials */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+        }
+    
+        .testimonial-card h6 {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+    
+        .testimonial-card p {
+            font-size: 16px;
+            color: white;
+            margin-bottom: 8px;
+        }
+    
+        .rating {
+            color: gold;
+            font-size: 18px;
+        }
+    </style>
+    
+    
+    
     <br>
     <!-- Gallery Section    S T A R T -->
     <div class="gallery-section">
@@ -1402,14 +1464,14 @@
         </div>
     </div>
 <!-- WhatsApp Chat Button -->
-<a href="https://wa.me/YOUR_PHONE_NUMBER" class="chat-button whatsapp-chat" target="_blank">
-    <img src="assets/img/whatsapp-icon.png" alt="WhatsApp">
+<a href="https://wa.me/971563020773" class="chat-button whatsapp-chat show" target="_blank">
+    <img src="assets\img\menu\image.png" alt="WhatsApp">
     <span class="chat-text">WhatsApp</span>
 </a>
 
 <!-- Facebook Messenger Chat Button -->
-<a href="https://m.me/YOUR_FACEBOOK_USERNAME" class="chat-button facebook-chat" target="_blank">
-    <img src="assets/img/messenger-icon.png" alt="Messenger">
+<a href="https://m.me/PrimeWishAE" class="chat-button facebook-chat show" target="_blank">
+    <img src="assets\img\menu\messenger.jpg" alt="Messenger">
     <span class="chat-text">Messenger</span>
 </a>
 
@@ -1417,7 +1479,7 @@
     /* Common Chat Button Style */
     .chat-button {
         position: fixed;
-        right: 0; /* Stick to the right edge */
+        right: 0; /* Always visible at first */
         width: 180px;
         height: 50px;
         display: flex;
@@ -1430,12 +1492,12 @@
         color: white;
         border-radius: 25px 0 0 25px; /* Rounded left side */
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
+        transition: all 0.5s ease-in-out;
     }
 
     /* WhatsApp Chat Button */
     .whatsapp-chat {
-        bottom: 80px; /* WhatsApp is lower */
+        bottom: 100px; /* Positioned slightly higher */
         background-color: #25D366;
     }
 
@@ -1446,7 +1508,7 @@
 
     /* Facebook Messenger Chat Button */
     .facebook-chat {
-        bottom: 140px; /* Messenger is above WhatsApp */
+        bottom: 160px; /* Positioned slightly higher */
         background-color: #0078FF;
     }
 
@@ -1464,7 +1526,33 @@
     .chat-text {
         margin-left: 10px;
     }
+
+    /* Hidden state when scrolling */
+    .chat-button.hidden {
+        right: -200px; /* Moves off-screen */
+    }
 </style>
+
+<script>
+    let scrollTimer = null;
+
+    window.addEventListener("scroll", function () {
+        // Hide chat buttons on scroll
+        document.querySelectorAll(".chat-button").forEach(button => {
+            button.classList.add("hidden");
+        });
+
+        // Clear previous timer and set a new one
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+            // Show chat buttons when scrolling stops with slide-in animation
+            document.querySelectorAll(".chat-button").forEach(button => {
+                button.classList.remove("hidden");
+            });
+        }, 500); // Delay before reappearing (500ms)
+    });
+</script>
+
 
     <!-- Footer Section    S T A R T -->
     <footer class="footer-section bg-title fix">
