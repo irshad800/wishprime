@@ -20,7 +20,18 @@
     --body-font:   "Roboto", sans-serif;
     --icon-font: "Font Awesome 6 Pro";
 }
-
+.error-wrapper h2 {
+    color: var(--title);
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 50px;
+    text-transform: capitalize;
+    margin-top: 70px;
+    margin-bottom: 5px;
+}
 // Theme Color - Defualt Colors
 $black: var(--black);
 $dark: var(--dark);

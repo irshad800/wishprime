@@ -5777,13 +5777,13 @@ input.main-search-input::placeholder {
 }
 
 /* 17.Breadcumb */
-.breadcumb-wrapper {
+.breadcumb-wrapper1 {
   background-image: url(../img/shape/2796a929-a506-4bcd-aa26-966a670d81ee.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.breadcumb-wrapper .breadcumb-content {
+.breadcumb-wrapper1 .breadcumb-content {
   padding: 160px 0;
   text-align: center;
 }
@@ -7268,7 +7268,7 @@ input.main-search-input::placeholder {
 /* 23.Timer */
 .timer-wrap.style1 {
   position: relative;
-  background-image: url(../../assets/img/shape/wood.png);
+  background-color:lightsalmon;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

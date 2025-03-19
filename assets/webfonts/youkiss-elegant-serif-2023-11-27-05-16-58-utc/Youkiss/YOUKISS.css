@@ -1,0 +1,10 @@
+/* Webfont: YOUKISSRegular */@font-face {
+    font-family: 'YOUKISS';
+    src: url('YOUKISS.woff') format('woff'), /* Modern Browsers */
+         url('YOUKISS.woff2') format('woff2'), /* Modern Browsers */
+         url('YOUKISS.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
