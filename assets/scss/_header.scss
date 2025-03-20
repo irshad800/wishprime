@@ -114,10 +114,11 @@
     }
 }
 
-.header-section {
-	position: relative;
-	background-color: $white;
-	z-index: 99;
+.header {
+    position: relative;
+    background-color: lightblue;
+    z-index: 99;
+}
 
 	.black-bg{
 		position: absolute;

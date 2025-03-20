@@ -480,6 +480,7 @@
                     <div class="sub-title-text-center-wow-fadeInUp" data-wow-delay="0.5s">
                         <img class="me-1" src=""> PRIME WISH <img class="ms-1" src="">
                     </div>
+                    <br>
                     <style>
                         @font-face {
                             font-family: 'Artisa';
@@ -491,15 +492,33 @@
                         /* Apply the font to your text */
                         .sub-title-text-center-wow-fadeInUp {
                             font-family: 'Artisa', sans-serif !important;
-                            font-size: 20px; /* Adjust size */
+                            font-size: 30px; /* Adjust size */
                             font-weight: bold;
                             text-align: center;
                         }
                         
                     </style>
-                    <h2 class="title wow fadeInUp" data-wow-delay="0.7s">
+                    <center>
+                    <h4 class="middle" data-wow-delay="0.7s">
                         PRIME OF YOUR LIFE
-                    </h2>
+                    </h4>
+                </center>
+                    <style>
+                        @font-face {
+                            font-family: 'dune';
+                            src: url('assets/webfonts/dune_rise/Dune_Rise.ttf') format('truetype');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                        
+                        /* Apply the font to your text */
+                        .middle {
+                            font-family: 'dune', sans-serif !important;
+                            font-size: 30px; /* Adjust size */
+                            font-weight: bold;
+                            color: black;
+                        }    
+                    </style>
                 </div>
 
                 <!-- Tab Navigation -->
@@ -521,37 +540,168 @@
                     }
                     
                 </style>
+                <style>/* Circular container for each section */
+                    .menu-content-container {
+                        width: 300px;  /* Adjust size */
+                        height: 300px; /* Ensure a perfect circle */
+                        border-radius: 50%;
+                        background: #ff9800; /* Customize background */
+                        color: white;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        padding: 20px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Optional shadow */
+                        margin: 20px auto; /* Center */
+                    }
+                    
+                    /* Style the headings inside the circle */
+                    .menu-content-container h2 {
+                        font-size: 22px;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                    }
+                    
+                    /* Style the text inside the circle */
+                    .menu-content-container p {
+                        font-size: 14px;
+                        line-height: 1.4;
+                        max-width: 80%;
+                    }
+                    
+                    /* Responsive for smaller screens */
+                    @media (max-width: 500px) {
+                        .menu-content-container {
+                            width: 250px;
+                            height: 250px;
+                            padding: 15px;
+                        }
+                        .menu-content-container h2 {
+                            font-size: 18px;
+                        }
+                        .menu-content-container p {
+                            font-size: 12px;
+                        }
+                    }
+                    .tab-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tab-arrow {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.tab-arrow:hover {
+    background: #e65100;
+}
+
+                    </style>
+                    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let tabs = document.querySelectorAll("#pills-tab button");
+        let tabIndex = 0;
+        let intervalTime = 5000; // Time in milliseconds (5 seconds)
+
+        function switchTab() {
+            tabs[tabIndex].classList.remove("active");
+            let nextIndex = (tabIndex + 1) % tabs.length;
+            tabs[nextIndex].click();
+            tabIndex = nextIndex;
+        }
+
+        // Start the automatic tab switch
+        let tabInterval = setInterval(switchTab, intervalTime);
+
+        // Pause auto switch on hover
+        tabs.forEach(tab => {
+            tab.addEventListener("mouseenter", () => clearInterval(tabInterval));
+            tab.addEventListener("mouseleave", () => tabInterval = setInterval(switchTab, intervalTime));
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        let tabs = document.querySelectorAll("#pills-tab button");
+        let tabIndex = 0;
+        let intervalTime = 5000; // Auto-switch interval (5 seconds)
+        let tabInterval;
+
+        function switchTab(next = true) {
+            tabs[tabIndex].classList.remove("active");
+            tabIndex = next ? (tabIndex + 1) % tabs.length : (tabIndex - 1 + tabs.length) % tabs.length;
+            tabs[tabIndex].click();
+        }
+
+        function startAutoSwitch() {
+            tabInterval = setInterval(() => switchTab(true), intervalTime);
+        }
+
+        // Start auto-switching tabs
+        startAutoSwitch();
+
+        // Manual navigation with arrows
+        document.getElementById("nextTab").addEventListener("click", () => {
+            switchTab(true);
+            clearInterval(tabInterval);
+            startAutoSwitch();
+        });
+
+        document.getElementById("prevTab").addEventListener("click", () => {
+            switchTab(false);
+            clearInterval(tabInterval);
+            startAutoSwitch();
+        });
+
+        // Pause auto-switch on hover
+        tabs.forEach(tab => {
+            tab.addEventListener("mouseenter", () => clearInterval(tabInterval));
+            tab.addEventListener("mouseleave", startAutoSwitch);
+        });
+    });
+</script>
+
                 <div class="food-menu-tab style2">
                     <ul class="nav nav-pills" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Breakfast-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-Breakfast" type="button" role="tab"
-                                aria-controls="pills-Breakfast" aria-selected="true">Our Vision</button>
+                                aria-controls="pills-Breakfast" aria-selected="true"></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Lunch-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-Lunch" type="button" role="tab" aria-controls="pills-Lunch"
-                                aria-selected="false">Our Mission</button>
+                                aria-selected="false"></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Dinner-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-Dinner" type="button" role="tab" aria-controls="pills-Dinner"
-                                aria-selected="false">Our Values</button>
+                                aria-selected="false"></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Dessert-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-Dessert" type="button" role="tab"
-                                aria-controls="pills-Dessert" aria-selected="false">Our Integrity</button>
+                                aria-controls="pills-Dessert" aria-selected="false"></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Drink-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-Drink" type="button" role="tab" aria-controls="pills-Drink"
-                                aria-selected="false">Our Service</button>
+                                aria-selected="false"></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Snack-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-Snack" type="button" role="tab" aria-controls="pills-Snack"
-                                aria-selected="false">Excellence</button>
+                                aria-selected="false"></button>
                         </li>
                     </ul>
 
@@ -563,8 +713,9 @@
                             aria-labelledby="pills-Breakfast-tab">
                             <div class="menu-content-container">
                                 <div class="menu-image">
-                                    <img src="assets/img/menu/vision.jpg" alt="Our Vision">
+                                    <img src="" alt="">
                                 </div>
+                                <h2>Our Vision</h2>
                                 <p class="menu-description">
                                     Our vision is to create a future of one trading world through humanity we achieve our vision
                                     through our exclusive mission.
@@ -592,8 +743,9 @@
                             aria-labelledby="pills-Lunch-tab">
                             <div class="menu-content-container">
                                 <div class="menu-image">
-                                    <img src="assets/img/menu/mission.jpg" alt="Our Mission">
+                                    <img src="">
                                 </div>
+                                <h2>Our Mission</h2>
                                 <p class="menu-description">
                                     Our mission we work to make their own wishes become prime true and achieve together to
                                     become number one trading company.
@@ -606,8 +758,9 @@
                             aria-labelledby="pills-Dinner-tab">
                             <div class="menu-content-container">
                                 <div class="menu-image">
-                                    <img src="assets/img/menu/values.jpg" alt="Our Values">
+                                    <img src="">
                                 </div>
+                                <h2>Our Values</h2>
                                 <p class="menu-description">
                                     We act with consideration for others’ ideas and share information openly to inspire trust and
                                     encourage collaboration.
@@ -620,8 +773,9 @@
                             aria-labelledby="pills-Dessert-tab">
                             <div class="menu-content-container">
                                 <div class="menu-image">
-                                    <img src="assets/img/menu/integrity.jpg" alt="Our Integrity">
+                                    <img src="">
                                 </div>
+                                <h2>Our Integrity</h2>
                                 <p class="menu-description">
                                     No one individual, no one deal, no one client, is bigger than our commitment to our company
                                     and what we stand for.
@@ -634,8 +788,9 @@
                             aria-labelledby="pills-Drink-tab">
                             <div class="menu-content-container">
                                 <div class="menu-image">
-                                    <img src="assets/img/menu/service.jpg" alt="Our Service">
+                                    <img src="">
                                 </div>
+                                <h2>Our Service</h2>
                                 <p class="menu-description">
                                     PW Foods ensures quality, variety, and convenience with 500+ stocked products and a turnkey Private Label Program,
                                  saving businesses time and cost while delivering excellence.
@@ -648,8 +803,9 @@
                             aria-labelledby="pills-Snack-tab">
                             <div class="menu-content-container">
                                 <div class="menu-image">
-                                    <img src="assets/img/menu/excellence.jpg" alt="Excellence">
+                                    <img src="">
                                 </div>
+                                <h2>Excellence</h2>
                                 <p class="menu-description">
                                     We focus relentlessly on creating winning outcomes for our clients.
                                 </p>
@@ -657,7 +813,10 @@
                         </div>
 
                     </div> <!-- End Tab Content -->
-
+                    <div class="tab-navigation">
+                        <button id="prevTab" class="tab-arrow">&#10094; Prev</button>
+                        <button id="nextTab" class="tab-arrow">Next &#10095;</button>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -846,6 +1005,7 @@
                                 <img class="me-1" src="">Enjoy Our Products<img
                                     class="ms-1" src="">
                             </div>
+                            <br>
                             <style>
                                 @font-face {
                                     font-family: 'Artisa';
@@ -863,9 +1023,25 @@
                                 }
                                 
                             </style>
-                            <div class="title text-start wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="middle" data-wow-delay="0.7s">
                                 PRIME OF YOUR LIFE.
                             </div>
+                            <style>
+                                @font-face {
+                                    font-family: 'dune';
+                                    src: url('assets/webfonts/dune_rise/Dune_Rise.ttf') format('truetype');
+                                    font-weight: normal;
+                                    font-style: normal;
+                                }
+                                
+                                /* Apply the font to your text */
+                                .middle {
+                                    font-family: 'dune', sans-serif !important;
+                                    font-size: 30px; /* Adjust size */
+                                    font-weight: bold;
+                                    color: black;
+                                }    
+                            </style>
                         </div>
                         <div class="faq-content-3">
                             <div class="faq-accordion">
@@ -1283,11 +1459,10 @@ personalized customer service to ensure the best quality and value for each of o
    <!-- Footer Section    S T A R T -->
    <footer class="footer-section bg-title fix">
     <div class="footer-widgets-wrapper">
-        <div class="shape1 float-bob-y d-none d-xxl-block"><img src="assets/img/shape/footerShape1_1.png"
-                alt="shape"></div>
-        <div class="shape2 d-none d-xxl-block"><img src="assets/img/shape/footerShape1_2.png" alt="shape"></div>
-        <div class="shape3 d-none d-xxl-block"><img src="assets/img/shape/footerShape1_3.png" alt="shape"></div>
-        <div class="shape4  d-none d-xxl-block"><img src="assets/img/shape/footerShape1_4.png" alt="shape"></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
         <div class="container">
             <div class="footer-top">
                 <div class="row gy-4">
