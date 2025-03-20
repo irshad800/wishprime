@@ -206,8 +206,12 @@
         <div class="container-fluid">
             <div class="main-header-wrapper">
                 <a href="index.html" class="header-logo">
-                    <img src="assets/images/PW_LOGO_FILE[1].jpg" alt="img" width="100" height="65">
+                    <div class="logo-container">
+                        <img src="assets/images/PW_LOGO_FILE[1].jpg" alt="img" width="100" height="65">
+                        <h6 class="middles" data-wow-delay="0.7s">PRIME OF YOUR LIFE      </h6>  <!-- Move this here -->
+                    </div>
                 </a>
+          
                 <style>
                     @font-face {
                         font-family: 'dune';
@@ -215,16 +219,45 @@
                         font-weight: normal;
                         font-style: normal;
                     }
-                    
+                
                     /* Apply the font to your text */
                     .middles {
                         font-family: 'dune', sans-serif !important;
                         font-size: 20px; /* Adjust size */
                         font-weight: bold;
-                        color:black;
-                    }    
+                        color: black;
+                        margin-top: 10px; /* Space between image and text */
+                        text-align: center; /* Center the text */
+                        width: 100%; /* Ensure the text takes the available space */
+                        white-space: nowrap; /* Prevent text wrapping */
+                        overflow: hidden; /* Hide overflow */
+                        text-overflow: ellipsis; /* Add ellipsis if text overflows */
+                    }
+                
+                    /* Mobile responsive styles */
+                    @media (max-width: 768px) {
+                        .middles {
+                            font-size: 8px; /* Smaller font size on mobile */
+                            margin-top: 0px; /* Less space between logo and text */
+                            white-space: normal; /* Allow text to wrap if needed */
+                            overflow: visible; /* Allow text to overflow */
+                            text-align: left; /* Align text to the left on mobile */
+                            margin-left: 10px; /* Add space between the text and the logo */
+                        }
+                
+                        .logo-container {
+                            display: flex; /* Use flexbox to align items horizontally */
+                            align-items: center; /* Center align logo and text vertically */
+                            justify-content: flex-start; /* Align content to the left */
+                        }
+                
+                        .logo-container img {
+                            width: 80px; /* Smaller logo size on mobile */
+                            height: 50px; /* Adjust height to maintain proportions */
+                        }
+                    }
                 </style>
-                <h6 class="middles" data-wow-delay="0.7s">PRIME OF YOUR LIFE</h6>
+                
                 <div class="main-header-items">
                     <div class="header-top-wrapper">
                         <span></span>
@@ -285,12 +318,12 @@
                                     </div>
                                 </div>
                                 <div class="header-right d-flex justify-content-end align-items-center">
-                                    <a href="#0" class="search-trigger search-icon"><i class="fal fa-search"></i></a>
+                                    <!-- <a href="#0" class="search-trigger search-icon"><i class="fal fa-search"></i></a> -->
                                     <div class="header__account">
                                         <a href="account.html"><i class="fa-sharp fa-regular fa-user"></i></a>
                                     </div>
-                                
-                                    <div class="header__cart">
+    
+                                    <!-- <div class="header__cart">
                                         <a href="#"> <i class="fa-sharp fa-regular fa-cart-shopping"></i> </a>
                                         <div class="header__right__dropdown__wrapper">
                                             <div class="header__right__dropdown__inner">
@@ -308,7 +341,7 @@
                                                         <a href="#"><i class="icofont-close-line"></i></a>
                                                     </div>
                                                 </div>
-                                
+    
                                                 <div class="single__header__right__dropdown">
                                                     <div class="header__right__dropdown__img">
                                                         <a href="#">
@@ -323,7 +356,7 @@
                                                         <a href="#"><i class="icofont-close-line"></i></a>
                                                     </div>
                                                 </div>
-                                
+    
                                                 <div class="single__header__right__dropdown">
                                                     <div class="header__right__dropdown__img">
                                                         <a href="#">
@@ -339,17 +372,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                
+    
                                             <p class="dropdown__price">Total: <span>$1,100.00</span></p>
                                             <div class="header__right__dropdown__button">
                                                 <a href="cart.html" class="theme-btn mb-2">View Cart</a>
                                                 <a href="checkout.html" class="theme-btn style3">Checkout</a>
                                             </div>
                                         </div>
-                                    </div>
-                                
+                                    </div> -->
+    
                                     <a class="theme-btn" href="shop.html">ORDER NOW <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                                
+    
                                     <div class="header__hamburger d-xl-block my-auto">
                                         <div class="sidebar__toggle">
                                             <i class="fas fa-bars"></i>
@@ -361,10 +394,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-
-
+        </header>
+    
     <!-- Search Area Start -->
     <div class="search-wrap">
         <div class="search-inner">
