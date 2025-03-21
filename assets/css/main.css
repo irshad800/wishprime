@@ -5778,7 +5778,7 @@ input.main-search-input::placeholder {
 
 /* 17.Breadcumb */
 .breadcumb-wrapper1 {
-  background-image: url(../img/shape/2796a929-a506-4bcd-aa26-966a670d81ee.png);
+  background-image: url(../img/IMG-20250321-WA0008[1].jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7676,11 +7676,29 @@ input.main-search-input::placeholder {
 /* 25.Cta */
 .cta-wrapper.style1 {
   position: relative;
-  background-image: url(../../assets/img/shape/Screenshot\ 2025-02-26\ 170607.png);
+  background-image: url(../../assets/img/bg/background.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.cta-wrapper.style1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* Copies the background */
+  filter: blur(2px); /* Adjust blur intensity */
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2; /* Ensures text & content stay sharp above the blur */
+}
+
 .cta-wrapper.style1 .shape1 {
   position: absolute;
   top: 0;
