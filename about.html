@@ -8,11 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="gramentheme">
-    <meta name="description" content="Fresheat food & Restaurant Html Template">
+    <meta name="description" content="prime wish">
     <!-- ======== Page title ============ -->
-    <title>Prime Wish</title>
+    <title>PRIME WISH</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" href="assets\img\image.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Add this inside your <head> tag -->
+<script src="custom.js"></script>
+
 </head>
 
 <body class="bg-color2">
@@ -39,31 +42,31 @@
             <div class="spinner">
             </div>
             <div class="txt-loading">
-                <span data-text-preloader="F" class="letters-loading">
+                <span data-text-preloader="P" class="letters-loading">
                     P
                 </span>
                 <span data-text-preloader="R" class="letters-loading">
                     R
                 </span>
+                <span data-text-preloader="I" class="letters-loading">
+                    I
+                </span>
+                <span data-text-preloader="M" class="letters-loading">
+                    M
+                </span>
                 <span data-text-preloader="E" class="letters-loading">
+                    E
+                </span>
+                <span data-text-preloader="W" class="letters-loading">
+                    W
+                </span>
+                <span data-text-preloader="I" class="letters-loading">
                     I
                 </span>
                 <span data-text-preloader="S" class="letters-loading">
-                    M
-                </span>
-                <span data-text-preloader="H" class="letters-loading">
-                    E
-                </span>
-                <span data-text-preloader="E" class="letters-loading">
-                    W
-                </span>
-                <span data-text-preloader="A" class="letters-loading">
-                    I
-                </span>
-                <span data-text-preloader="T" class="letters-loading">
                     S
                 </span>
-                <span data-text-preloader="T" class="letters-loading">
+                <span data-text-preloader="H" class="letters-loading">
                     H
                 </span>
             </div>
@@ -95,7 +98,88 @@
     <button id="back-top" class="back-to-top">
         <i class="fa-regular fa-arrow-up"></i>
     </button>
-
+    <style>
+        /* Responsive Header Fix for Mobile View */
+        @media (max-width: 768px) {
+            .header-section-3 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: transparent; /* No background */
+                z-index: 1000;
+                padding: 10px 0;
+            }
+        
+            .main-header-wrapper,
+            .main-header-items,
+            .header-main {
+                background-color: transparent !important;
+            }
+        
+            .header-middle nav#mobile-menu ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                padding: 0;
+                margin: 0;
+            }
+        
+            .header-middle nav#mobile-menu ul li a {
+                color: #ffffff !important;
+                font-weight: bold;
+                font-size: 18px;
+                text-decoration: none;
+            }
+        
+            .hero-section,
+            .banner-section {
+                margin-top: 0 !important; /* No push down */
+            }
+        
+            .header__hamburger i {
+                color: #fff;
+                font-size: 24px;
+            }
+        
+            .offcanvas__info {
+                z-index: 2000 !important;
+            }
+        
+            .header__account a {
+                color: #ffffff;
+            }
+        
+            /* Hide cart and search in mobile */
+            .header__cart,
+            .search-icon {
+                display: none !important;
+            }
+        }
+        
+        /* Header always on top */
+        .header-section-3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+        }
+        
+        /* Banner behind header */
+        .banner-section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Hide cart and search in desktop too */
+        .header__cart,
+        .search-icon {
+            display: none !important;
+        }
+        </style>        
     <!-- Offcanvas Area Start -->
     <div class="fix-area">
         <div class="offcanvas__info">
@@ -302,8 +386,8 @@
                                     
                                                 <p class="dropdown__price">Total: <span>$1,100.00</span></p>
                                                 <div class="header__right__dropdown__button">
-                                                    <a href="cart.html" class="theme-btn mb-2">View Cart</a>
-                                                    <a href="checkout.html" class="theme-btn style3">Checkout</a>
+                                                    <a href="" class="theme-btn mb-2">View Cart</a>
+                                                    <a href="" class="theme-btn style3">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1473,6 +1557,7 @@ personalized customer service to ensure the best quality and value for each of o
                             <div class="item2">
                                 <h6>send email</h6>
                                 <p>info@primewish.ae</p>
+                                <p>secretary@primewish.ae</p>
                             </div>
                         </div>
                     </div>
@@ -1482,6 +1567,7 @@ personalized customer service to ensure the best quality and value for each of o
                             <div class="item2">
                                 <h6>call emergency</h6>
                                 <p>+971 508009426</p>
+                                <p>+97142597167</p>
                             </div>
                         </div>
                     </div>
